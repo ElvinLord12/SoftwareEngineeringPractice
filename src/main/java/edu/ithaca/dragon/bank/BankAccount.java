@@ -41,11 +41,34 @@ public class BankAccount {
      */
 
     public static boolean isEmailValid(String email){
+
         if (email.indexOf('@') == -1){
             return false;
         }
+        if (email.isEmpty()==true){
+            return false;
+        }
+        else if (email.startsWith("-")||email.startsWith("#")||email.startsWith("$")){
+            return false;
+        }
+         else if (email.contains("#")){
+            return false;
+        }
+         else if (email.endsWith(".com")==false && email.endsWith(".net")==false && email.endsWith(".org")==false){
+             return false;
+        }
+//        else if (front == '-' || front == '#' || front == '_'){
+//            return false;
+//        }
         else {
-            return true;
+            int frontChar = email.indexOf('@')-1;
+            char front = email.charAt(frontChar);
+            if(front == '-' || front == '#' || front == '_'){
+                return false;
+            }
+            else{
+                return true;
+            }
         }
     }
 }
