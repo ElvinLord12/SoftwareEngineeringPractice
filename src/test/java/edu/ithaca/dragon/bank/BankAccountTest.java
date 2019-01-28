@@ -56,14 +56,10 @@ class BankAccountTest {
         assertEquals(200, bankAccount.getBalance());
         //check for exception thrown correctly
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
-
-        BankAccount negAccount = new BankAccount("bill@g.com",-200);
-        assertEquals("bill@g.com",negAccount.getEmail());
-        assertEquals(0,negAccount.getBalance());
-
-        BankAccount decAccount = new BankAccount("bill@g.com",200.123);
-        assertEquals("bill@g.com",decAccount.getEmail());
-        assertEquals(0,decAccount.getBalance());
+        //checks for exception thrown for bad starting bal
+        assertThrows(IllegalArgumentException.class, ()-> new BankAccount("bill@g.com",-200));
+        //checks for exception thrown for bad starting bal
+        assertThrows(IllegalArgumentException.class, ()-> new BankAccount("bill@g.com",200.123));
 
     }
 

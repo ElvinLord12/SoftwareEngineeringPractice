@@ -3,18 +3,18 @@ package edu.ithaca.dragon.bank;
 public class BankAccount {
 
     private String email;
-    private double balance;
+    private double balance = 0;
 
     /**
      * @throws IllegalArgumentException if email is invalid
      */
     public BankAccount(String email, double startingBalance){
-        if (isEmailValid(email)){
+        if (isEmailValid(email) && isAmountValid(startingBalance)){
             this.email = email;
             this.balance = startingBalance;
         }
         else {
-            throw new IllegalArgumentException("Email address: " + email + " is invalid, cannot create account");
+            throw new IllegalArgumentException("Email address: " + email + " is invalid, cannot create account or starting balance isn't a valid amount");
         }
     }
 
@@ -29,7 +29,7 @@ public class BankAccount {
     /**
      * @return a true value if the amount is a double with at most 2 decimal places and is a positive number
      */
-    public boolean isAmountValid(double amount) {
+    public static boolean isAmountValid(double amount) {
 
         if (amount<0){
             return false;
@@ -50,14 +50,12 @@ public class BankAccount {
      * only reduces the amount in the account won't be overdrafted and the amount isn't negative
      */
     public void withdraw (double amount)  {
-        if(amount<0){
-            balance = balance;
-        }
-        else if(amount > balance){
-            balance -= balance;
-        }
-        else{
-            balance -= amount;
+        if(isAmountValid(amount)==true) {
+            if (amount > balance) {
+                balance -= balance;
+            } else {
+                balance -= amount;
+            }
         }
 
     }
