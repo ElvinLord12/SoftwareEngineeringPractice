@@ -13,14 +13,24 @@ class BankAccountTest {
         assertEquals(200, bankAccount.getBalance());
     }
 
+    /**
+     * @tests for valid withdraw attempts outlined in BankAccount.java javadoc
+     */
     @Test
     void withdrawTest() {
         BankAccount bankAccount = new BankAccount("a@b.com", 200);
         bankAccount.withdraw(100);
 
         assertEquals(100, bankAccount.getBalance());
+        bankAccount.withdraw(200);
+        assertEquals(0,bankAccount.getBalance());
+        bankAccount.withdraw(-300);
+        assertEquals(0,bankAccount.getBalance());
     }
 
+    /**
+     * @tests for valid emails based on rules outlined in the BankAccount.java javadoc
+     */
     @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));

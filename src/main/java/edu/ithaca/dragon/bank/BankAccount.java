@@ -28,6 +28,7 @@ public class BankAccount {
 
     /**
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
+     * only reduces the amount in the account won't be overdrafted and the amount isn't negative
      */
     public void withdraw (double amount)  {
         balance -= amount;
