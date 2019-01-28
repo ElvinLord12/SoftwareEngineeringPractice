@@ -31,7 +31,15 @@ public class BankAccount {
      * only reduces the amount in the account won't be overdrafted and the amount isn't negative
      */
     public void withdraw (double amount)  {
-        balance -= amount;
+        if(amount<0){
+            balance = balance;
+        }
+        else if(amount > balance){
+            balance -= balance;
+        }
+        else{
+            balance -= amount;
+        }
 
     }
     /**

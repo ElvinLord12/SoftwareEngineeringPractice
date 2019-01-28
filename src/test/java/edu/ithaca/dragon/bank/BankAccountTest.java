@@ -15,6 +15,8 @@ class BankAccountTest {
 
     /**
      * @tests for valid withdraw attempts outlined in BankAccount.java javadoc
+     * tries to withdraw more than we have also tries to withdraw a negative amount to raise our balance both work
+     * prior to code update
      */
     @Test
     void withdrawTest() {
