@@ -27,6 +27,13 @@ public class BankAccount {
     }
 
     /**
+     * @return a true value if the amount is a double with at most 2 decimal places and is a positive number
+     */
+    public boolean isAmountValid(double amount){
+        return false;
+    }
+
+    /**
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
      * only reduces the amount in the account won't be overdrafted and the amount isn't negative
      */
