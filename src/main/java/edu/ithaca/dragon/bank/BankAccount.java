@@ -33,7 +33,12 @@ public class BankAccount {
         balance -= amount;
 
     }
-
+    /**
+     * @return if the '@' symbol isn't present it isn't a valid email address, else returns false
+     * if the character before the '@' symbol isn't alphanumeric it isn't valid, else returns false
+     * the first item in the email address must be alphanumeric, else returns false
+     * the end of the address must be a domain, else returns false
+     */
 
     public static boolean isEmailValid(String email){
         if (email.indexOf('@') == -1){
